@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="white-bg">
+	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+		<form class="form-horizontal m" id="form-spidertask-add">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">任务名称：</label>
+				<div class="col-sm-8">
+					<input id="taskName" name="taskName" class="form-control"
+						type="text">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">任务状态：</label>
+				<div class="col-sm-8"
+					th:with="datas=${@dictService.selectDictData('sys_job_status')}">
+					<div th:each="dict : ${datas}" th:class="${dict['cssClass']}">
+						<input type="radio" th:id="${dict['dictCode']}" name="status"
+							th:value="${dict['dictValue']}"
+							th:checked="${dict['isDefault'] == 'Y' ? true : false}">
+						<label th:for="${dict['dictCode']}" th:text="${dict['dictLabel']}"></label>
+					</div>
+				</div>
+			</div>
+			<!-- 
+			<div class="form-group">	
+				<label class="col-sm-3 control-label">任务状态：</label>
+				<div class="col-sm-8">
+					<input id="taskStatus" name="taskStatus" class="form-control" type="text">
+				</div>
+			</div> -->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">任务执行频次：</label>
+				<div class="col-sm-8">
+					<select class="form-control" name="taskExecfrequency"
+						id="taskExecfrequency">
+						<option value="0">只执行一次</option>
+						<option value="1">每天执行一次</option>
+						<option value="2">每周执行一次</option>
+						<!-- <option value="3">其他</option> -->
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">备注：</label>
+				<div class="col-sm-8">
+					<input id="remark" name="remark" class="form-control" type="text">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-control-static col-sm-offset-9">
+					<button type="submit" class="btn btn-primary">创建</button>
+					<button th:onclick="'javascript:layer_close()'"
+						class="btn btn-danger" type="button">关闭</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div th:include="include::footer"></div>
+	<!-- <script src="/rzspider/spider/spidertask/add2.js"
+		th:src="@{/rzspider/spider/spidertask/add2.js}">
+	</script> -->
+</body>
+</html>

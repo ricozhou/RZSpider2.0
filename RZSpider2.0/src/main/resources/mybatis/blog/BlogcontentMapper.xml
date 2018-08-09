@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rzspider.project.blog.blogcontent.mapper.BlogcontentMapper">
+
+	<resultMap type="Blogcontent" id="BlogcontentResult">
+		<result property="cid" column="cid" />
+		<result property="title" column="title" />
+		<result property="slug" column="slug" />
+		<result property="created" column="created" />
+		<result property="modified" column="modified" />
+		<result property="content" column="content" />
+		<result property="type" column="type" />
+		<result property="tags" column="tags" />
+		<result property="categories" column="categories" />
+		<result property="hits" column="hits" />
+		<result property="commentsNum" column="comments_num" />
+		<result property="likeNum" column="like_num" />
+		<result property="allowComment" column="allow_comment" />
+		<result property="allowPing" column="allow_ping" />
+		<result property="allowFeed" column="allow_feed" />
+		<result property="status" column="status" />
+		<result property="author" column="author" />
+		<result property="gtmCreate" column="gtm_create" />
+		<result property="gtmModified" column="gtm_modified" />
+	</resultMap>
+
+	<select id="selectBlogcontentById" parameterType="Long"
+		resultMap="BlogcontentResult">
+		select cid, title, slug, created, modified, content, type,
+		tags, categories,
+		hits, comments_num,like_num, allow_comment,
+		allow_ping,
+		allow_feed, status,
+		author, gtm_create, gtm_modified from
+		blog_blogcontent
+		where cid = #{cid}
+	</select>
+
+	<select id="selectBlogcontentList" parameterType="Blogcontent"
+		resultMap="BlogcontentResult">
+		select cid, title, slug, created, modified, content, type, tags,
+		categories, hits, comments_num,like_num, allow_comment, allow_ping,
+		allow_feed,
+		status, author, gtm_create, gtm_modified from
+		blog_blogcontent
+		<where>
+			<if test="cid != null and cid != ''"> and cid = #{cid}</if>
+			<if test="title != null and title != ''"> and title = #{title}</if>
+			<if test="slug != null and slug != ''"> and slug = #{slug}</if>
+			<if test="created != null and created != ''"> and created = #{created}</if>
+			<if test="modified != null and modified != ''"> and modified = #{modified}</if>
+			<if test="content != null and content != ''"> and content = #{content}</if>
+			<if test="type != null and type != ''"> and type = #{type}</if>
+			<if test="tags != null and tags != ''"> and tags = #{tags}</if>
+			<if test="categories != null and categories != ''"> and categories = #{categories}</if>
+			<if test="hits != null and hits != ''"> and hits = #{hits}</if>
+			<if test="commentsNum != null and commentsNum != ''"> and comments_num = #{commentsNum}</if>
+			<if test="allowComment != null and allowComment != ''"> and allow_comment = #{allowComment}</if>
+			<if test="allowPing != null and allowPing != ''"> and allow_ping = #{allowPing}</if>
+			<if test="allowFeed != null and allowFeed != ''"> and allow_feed = #{allowFeed}</if>
+			<if test="status != null and status != ''"> and status = #{status}</if>
+			<if test="author != null and author != ''"> and author = #{author}</if>
+			<if test="gtmCreate != null and gtmCreate != ''"> and gtm_create = #{gtmCreate}</if>
+			<if test="gtmModified != null and gtmModified != ''"> and gtm_modified = #{gtmModified}</if>
+			<if test="searchValue != null and searchValue != ''">
+				AND title like concat(concat('%', #{searchValue}), '%')
+			</if>
+		</where>
+	</select>
+
+	<insert id="insertBlogcontent" parameterType="Blogcontent">
+		insert into blog_blogcontent (
+		<if test="cid != null and cid != '' ">cid, </if>
+		<if test="title != null and title != '' ">title, </if>
+		<if test="slug != null and slug != '' ">slug, </if>
+		<if test="created != null and created != '' ">created, </if>
+		<if test="modified != null and modified != '' ">modified, </if>
+		<if test="content != null and content != '' ">content, </if>
+		<if test="type != null and type != '' ">type, </if>
+		<if test="tags != null and tags != '' ">tags, </if>
+		<if test="categories != null and categories != '' ">categories, </if>
+		<if test="hits != null and hits != '' ">hits, </if>
+		<if test="commentsNum != null and commentsNum != '' ">comments_num, </if>
+		<if test="likeNum != null and likeNum != '' ">like_num, </if>
+		allow_comment,
+		allow_ping,
+		allow_feed,
+		author,
+		status,
+		gtm_create,
+		gtm_modified
+		)values(
+		<if test="cid != null and cid != ''">#{cid}, </if>
+		<if test="title != null and title != ''">#{title}, </if>
+		<if test="slug != null and slug != ''">#{slug}, </if>
+		<if test="created != null and created != ''">#{created}, </if>
+		<if test="modified != null and modified != ''">#{modified}, </if>
+		<if test="content != null and content != ''">#{content}, </if>
+		<if test="type != null and type != ''">#{type}, </if>
+		<if test="tags != null and tags != ''">#{tags}, </if>
+		<if test="categories != null and categories != ''">#{categories}, </if>
+		<if test="hits != null and hits != ''">#{hits}, </if>
+		<if test="commentsNum != null and commentsNum != ''">#{commentsNum}, </if>
+		<if test="likeNum != null and likeNum != ''">#{likeNum}, </if>
+		#{allowComment},
+		#{allowPing},
+		#{allowFeed},
+		#{author},
+		#{status},
+		sysdate(),
+		sysdate()
+		)
+	</insert>
+
+	<update id="updateBlogcontent" parameterType="Blogcontent">
+		update blog_blogcontent
+		<set>
+			<if test="title != null and title != ''">title = #{title}, </if>
+			<if test="slug != null and slug != ''">slug = #{slug}, </if>
+			<if test="created != null and created != ''">created = #{created}, </if>
+			<if test="modified != null and modified != ''">modified = #{modified}, </if>
+			<if test="content != null and content != ''">content = #{content}, </if>
+			<if test="type != null and type != ''">type = #{type}, </if>
+			<if test="tags != null and tags != ''">tags = #{tags}, </if>
+			<if test="categories != null and categories != ''">categories = #{categories}, </if>
+			<if test="hits != null and hits != ''">hits = #{hits}, </if>
+			<if test="commentsNum != null and commentsNum != ''">comments_num = #{commentsNum}, </if>
+			<if test="likeNum != null and likeNum != ''">like_num = #{likeNum}, </if>
+			allow_comment = #{allowComment},
+			allow_ping = #{allowPing},
+			allow_feed
+			= #{allowFeed},
+			author = #{author},
+			status = #{status},
+			gtm_modified =
+			sysdate()
+		</set>
+		where cid = #{cid}
+	</update>
+
+	<delete id="deleteBlogcontentById" parameterType="Long">
+		delete from
+		blog_blogcontent where cid = #{value}
+	</delete>
+
+	<delete id="batchDeleteBlogcontent" parameterType="Long">
+		delete from blog_blogcontent where cid in
+		<foreach item="cid" collection="array" open="(" separator=","
+			close=")">
+			#{cid}
+		</foreach>
+	</delete>
+
+</mapper>
