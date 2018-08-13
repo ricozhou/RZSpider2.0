@@ -44,3 +44,5 @@ Springboot作为基础框架，使用mybatis作为持久层框架，使用官方
 此项目建立在开源项目bootdo和若依系统基础上，点击链接加入群聊【BootDo交流二群】：614726589【若依交流二群】：1389287 感谢！
 本人联系方式，QQ：2320095772
 邮箱，QQ邮箱：2320095772@qq.com
+## 四.项目截图
+![](https://github.com/ricozhou/RZSpider2.0/raw/master/RZSpider2.0/image/20180809120334.png) 
