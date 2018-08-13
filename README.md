@@ -1,10 +1,10 @@
 # RZSpider2.0
 ## 一.项目介绍
-此项目建立在开源项目bootdo和若依系统基础上，如有侵权请及时与我联系，其详情请见：https://gitee.com/lcg0124/bootdo.git，https://gitee.com/y_project/RuoYi\
-Springboot作为基础框架，使用mybatis作为持久层框架，使用官方推荐的thymeleaf做为模板引擎，shiro作为安全框架详情请见：https://github.com/search?utf8=%E2%9C%93&q=springboot&type=\
-在此基础上，添加爬虫目录，工具目录，游戏目录以及聊天系统，添加网址设置等\
-为什么不叫crawler而叫spider，因为喜欢Spider-Man！\
-此项目源码请见：https://github.com/rzspider/RZSpider2.0\
+此项目建立在开源项目bootdo和若依系统基础上，如有侵权请及时与我联系，其详情请见：https://gitee.com/lcg0124/bootdo.git，https://gitee.com/y_project/RuoYi  
+Springboot作为基础框架，使用mybatis作为持久层框架，使用官方推荐的thymeleaf做为模板引擎，shiro作为安全框架详情请见：https://github.com/search?utf8=%E2%9C%93&q=springboot&type=  
+在此基础上，添加爬虫目录，工具目录，游戏目录以及聊天系统，添加网址设置等  
+为什么不叫crawler而叫spider，因为喜欢Spider-Man！  
+此项目源码请见：https://github.com/rzspider/RZSpider2.0/  
 ## 二.使用方式
 ### 1.基本功能
 基本功能使用请见：https://gitee.com/lcg0124/bootdo.git，https://github.com/lcg0124/bootdo.git
