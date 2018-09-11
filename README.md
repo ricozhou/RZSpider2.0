@@ -8,6 +8,8 @@ Springboot作为基础框架，使用mybatis作为持久层框架，使用官方
 ## 二.使用方式
 ### 1.基本功能
 基本功能使用请见：https://gitee.com/lcg0124/bootdo.git，https://github.com/lcg0124/bootdo.git
+在线演示：http://47.96.106.161  user:testadmin  password:testadmin  
+请善待开源项目服务器，谢谢！
 ### 2.网页爬虫
 基本认知：此爬虫系统内置5个已写好爬虫，后台ID分别是10001-10005，请不要随意修改，支持语言JAVA,JAVASCRIPT,PYTHON等，可自定义，但后台安全需要另行配置  
 权限认知：超级管理员和管理员可以定义爬虫类型和添加编写自定义爬虫，普通用户可添加已有的爬虫管理及爬虫任务  
