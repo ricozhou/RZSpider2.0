@@ -7,7 +7,7 @@ Springboot作为基础框架，使用mybatis作为持久层框架，使用官方
 此项目源码请见：https://github.com/rzspider/RZSpider2.0/  
 ## 二.使用方式
 ### 1.基本功能
-基本功能使用请见：https://gitee.com/lcg0124/bootdo.git，https://github.com/lcg0124/bootdo.git
+基本功能使用请见：https://gitee.com/lcg0124/bootdo.git，https://github.com/lcg0124/bootdo.git 
 本项目在线演示：http://47.96.106.161  user:testadmin  password:testadmin  
 请善待开源项目服务器，谢谢！
 ### 2.网页爬虫
